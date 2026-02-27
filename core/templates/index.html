@@ -1,0 +1,18 @@
+{% extends './base.html' %}
+{% block content %}
+<body>
+<div class="container">
+    <section class="products">
+        {% for p in product %}
+        <div class="card">
+            <img src="{{ p.image.url }}" alt="">
+            <h4>{{ p.name }}</h4>
+            <p>{{ p.description }}</p>
+            <div class="price">{{ p.price }} сом</div>
+            <button class="btn btn-primary">В корзину</button>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+</body>
+{% endblock %}

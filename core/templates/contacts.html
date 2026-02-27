@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+
+<section class="page">
+    <h2>Свяжитесь с нами</h2>
+
+    <div class="contact-grid">
+        <div class="contact-info">
+            <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+            <p><strong>Email:</strong> support@techstore.ru</p>
+            <p><strong>Адрес:</strong> г. Москва, ул. Технологическая, 10</p>
+        </div>
+
+        <form class="contact-form">
+            <input type="text" placeholder="Ваше имя">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Ваше сообщение"></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

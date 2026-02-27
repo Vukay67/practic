@@ -1,0 +1,45 @@
+.page {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    margin-top: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    background: url("https://i.pinimg.com/originals/e2/b3/ff/e2b3ff329c3a6ce26afcd1c53d9de30a.jpg");
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.profile-info {
+    margin-bottom: 20px;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn.danger {
+    background: #e53935;
+}

@@ -1,0 +1,30 @@
+{% extends './base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+<section class="page">
+    <h2>О компании TechStore</h2>
+    <p>
+        TechStore — современный интернет-магазин электроники.
+        Мы предлагаем качественную технику по доступным ценам.
+    </p>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <h3>Наша миссия</h3>
+            <p>Сделать технологии доступными каждому.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Почему мы?</h3>
+            <p>Гарантия качества, быстрая доставка и поддержка 24/7.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Опыт</h3>
+            <p>Более 5 лет на рынке электронной коммерции.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TechStore{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<header>
+    <div class="header-top">
+        <div class="left">
+            <a href="{% url 'main_page' %}" class="logo">TechStore</a>
+            <nav>
+                <a href="{% url 'about_uss_page' %}">О нас</a>
+                <a href="{% url 'contacts_page' %}">Контакты</a>
+                <a href="{% url 'profil_page' %}">Профиль</a>
+            </nav>
+        </div>
+
+        <form class="search-filter" method="get">
+            <input type="text" placeholder="Поиск товара..." name="search">
+            <select name="sort">
+                <option value="">Сортировка</option>
+                <option value="price_asc">По цене (сначала дешевле)</option>
+                <option value="price_desc">По цене (сначала дороже)</option>
+            </select>
+            <button type="submit">Искать</button>
+        </form>
+    </div>
+</header>
+
+<main class="content">
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    © 2026 TechStore. Все права защищены.
+</footer>
+
+</body>
+</html>
