@@ -2,34 +2,34 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .forms import AuthenticationForm, RegistrationForm
+from .forms import AuthenticationForm, RegistrationForm, ProfilImageForm
 from .models import Product
 
-@login_required
 def main_page(request):
     product = Product.objects.all()
 
     q_search = request.GET.get("search")
     q_sort = request.GET.get("sort")
+    q_category = request.GET.get("category")
 
     if q_search is not None and len(q_search) > 0:\
         product = product.filter(name__icontains=q_search)
 
-    if q_sort is not None and len(q_sort):
-        if q_sort == "name_asc":
-            product = product.order_by('name')
-        elif q_sort == "name_desc":
-            product = product.order_by('-name')
-        elif q_sort == "price_asc":
+    if q_sort is not None:
+        if q_sort == "price_asc":
             product = product.order_by('price')
         elif q_sort == "price_desc":
             product = product.order_by('-price')
+
+    if q_category is not None:
+        product = product.filter(category__icontains=q_category)
 
     context = {
         "product": product
     }
 
     return render(request, "index.html", context)
+
 def login_page(request):
     if request.method == "POST":
         form = AuthenticationForm(request.POST)
@@ -69,7 +69,12 @@ def register_page(request):
 
     return render(request, 'register.html', context)
 
+@login_required
 def profil_page(request):
+    if request.method == "POST":
+        form = ProfilImageForm(request.POST)
+        if form.is_valid():
+            image = form.changed_data.get("image")
     user = User.objects.all()
 
     context = {

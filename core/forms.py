@@ -91,3 +91,7 @@ class RegistrationForm(forms.Form):
             raise forms.ValidationError("Пароли не совпадают")
         
         return cleaned_data
+    
+class ProfilImageForm(forms.Form):
+    title = forms.CharField(max_length=100)
+    image = forms.ImageField()
